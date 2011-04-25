@@ -1,11 +1,11 @@
 from setuptools import setup, find_packages
 
 
-setup(name='backsql',
+setup(name='dropper',
       version='1.0',
-      description='Backup PostgreSQL database to Dropbox',
+      description='A CLI for Dropbox manipulation',
       author='Olli Wang',
       author_email='olliwang@ollix.com',
       url='http://www.ollix.com/',
-      packages=['backsql'],
+      packages=['dropper'],
       install_requires = ['dropbox-client', 'oparse'],)
