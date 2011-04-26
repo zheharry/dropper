@@ -50,18 +50,6 @@ class DropperCommand(oparse.command.Command):
             print 'Config file is not provided'
             return
 
-        try:
-            remote_dir = args[2]
-        except IndexError:
-            print 'The remote dir is not provided'
-            return
-
-        try:
-            upload_file = args[3]
-        except IndexError:
-            print 'The file to upload is not provided'
-            return
-
         config = {'server': 'api.dropbox.com',
                   'port': self.port,
                   'request_token_url': self.request_token_url,
@@ -91,6 +79,19 @@ class DropperCommand(oparse.command.Command):
 
             print 'Got access token. Copy it to your config file: \n%s' % \
                    access_token.to_string()
+            return
+
+        # Determines remote directory and the file to upload
+        try:
+            remote_dir = args[2]
+        except IndexError:
+            print 'The remote dir is not provided'
+            return
+
+        try:
+            upload_file = args[3]
+        except IndexError:
+            print 'The file to upload is not provided'
             return
 
         access_token = oauth.OAuthToken.from_string(config['access_token'])
