@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 
 setup(name='dropper',
-      version='0.9',
+      version='0.9.1',
       description='A CLI for Dropbox manipulation',
       author='Olli Wang',
       author_email='olliwang@ollix.com',

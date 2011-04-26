@@ -26,8 +26,6 @@ class DropperCommand(oparse.command.Command):
         consumer_secret = CONSUMER_SECRET
         # Fill this once you get the access token
         access_token =
-        # The path to put uploaded file
-        path =
     """
     usage = '%prog CONFIG_FILE REMOTE_DIR UPLOAD_FILE'
 
