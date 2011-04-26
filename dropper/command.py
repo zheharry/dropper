@@ -103,6 +103,11 @@ class DropperCommand(oparse.command.Command):
         else:
             print 'Uploaded successfully.'
 
-if __name__ == '__main__':
+
+def dropper_command():
     command = DropperCommand()
     command(*sys.argv)
+
+
+if __name__ == '__main__':
+    dropper_command()
