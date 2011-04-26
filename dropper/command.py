@@ -29,7 +29,7 @@ class DropperCommand(oparse.command.Command):
         # The path to put uploaded file
         path =
     """
-    usage = '%prog CONFIG_FILE UPLOAD_FILE'
+    usage = '%prog CONFIG_FILE REMOTE_DIR UPLOAD_FILE'
 
     parser = oparse.parser.OptionParser()
     parser.add_option('--root', action='store', default='dropbox',
@@ -53,7 +53,13 @@ class DropperCommand(oparse.command.Command):
             return
 
         try:
-            upload_file = args[2]
+            remote_dir = args[2]
+        except IndexError:
+            print 'The remote dir is not provided'
+            return
+
+        try:
+            upload_file = args[3]
         except IndexError:
             print 'The file to upload is not provided'
             return
@@ -93,7 +99,7 @@ class DropperCommand(oparse.command.Command):
         client = dropbox.client.DropboxClient(self.api_host, self.content_host,
                                               self.port, auth, access_token)
         f = open(upload_file, 'r')
-        result = client.put_file(options['root'], config['path'], f).data
+        result = client.put_file(options['root'], remote_dir, f).data
         f.close()
 
         if result is None:
