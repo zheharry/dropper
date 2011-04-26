@@ -64,7 +64,7 @@ class DropperCommand(oparse.command.Command):
         if not config['access_token']:
             request_token = auth.obtain_request_token()
             url = auth.build_authorize_url(request_token)
-            print 'Authorize backsql to access your Dropbox at \n%s' % url
+            print 'Authorize dropper to access your Dropbox at \n%s' % url
 
             raw_input('Press enter key while you are done...')
 
