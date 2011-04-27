@@ -66,7 +66,7 @@ class DropperCommand(oparse.command.Command):
             url = auth.build_authorize_url(request_token)
             print 'Authorize dropper to access your Dropbox at \n%s' % url
 
-            raw_input('Press enter key while you are done...')
+            raw_input('Press enter key when you are done...')
 
             try:
                 access_token = auth.obtain_access_token(request_token,
